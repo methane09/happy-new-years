@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  font-family: "Poppins", sans-serif;
+}
+.text-support{
+  animation: animation-color-text 2s infinite;
+  font-size: 24px;
+  position: absolute;
+  top: 23%;
+  cursor: pointer;
+}
+
+.mail{
+  width: 90%;
+  max-width: 300px;
+  height: 200px;
+  background-color: antiquewhite;
+  border-radius: 8px;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 2px 2px 2px rgba(24, 24, 24, 0.4);
+}
+
+#check-box:checked ~ .mail{
+  overflow: visible;
+}
+
+.top-mail{
+  width: 300px;
+  height: 100px;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  border-radius: 8px;
+  background-color: #ffcbac;
+  transition: transform .8s ease, background-color .4s ease;
+}
+
+.bottom-mail{
+  width: 300px;
+  height: 100px;
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
+  border-radius: 8px;
+  background-color: #ffcbac;
+}
+
+.circle-mail{
+  width: 50px;
+  height: 50px;
+  background-color: #ff3030;
+  border-radius: 50%;
+  position: absolute;
+    top: 50%;
+    left: 50.8%;
+    transform: translate(-50%, -50%);
+  box-shadow: 0 0 4px #ff3030;
+  cursor: pointer;
+  transition: background-color .4s 100ms ease, box-shadow .4s ease, opacity .6s 1000ms ease;
+}
+
+.circle-mail:hover{
+  animation: animation-circle 1.5s infinite;
+}
+
+.circle-mail svg{
+  height: 30px;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  fill: rgba(255, 171, 171, 0.9);
+}
+
+.mail-content{
+  width: 90%;
+  max-width: 400px;
+  height: 250px;
+  background-color: #FF6FA5;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 -8px 7px 2px rgba(255,255,255,.3);
+  transition: opacity .4s 500ms ease, visibility .4s 500ms ease, top .3s 800ms ease;
+}
+.mail-content h1{
+  font-size: 25px;
+  text-align: center;
+  margin-top: 15px;
+  color: #000181;
+}
+
+.mail-content p{
+  font-size: 17px;
+  text-align: center;
+  margin-top: 3px;
+  color: #FFDAC0;
+}
+
+.close{
+  font-size: 20px;
+  /* background-color: rgb(255, 106, 106); */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  cursor: pointer;
+  color: #f0f0f0;
+  border-radius: 10%;
+  animation: animation-color-close 2s infinite;
+}
+
+#check-box:checked ~ .mail .top-mail{
+  transform: rotateX(180deg) translateY(95px);
+  background-color: #ff8747;
+}
+
+#check-box:checked ~ .mail-content{
+  opacity: 1;
+  visibility: visible;
+  top: 40%;
+}
+
+#check-box:checked ~ .mail .circle-mail{
+  background-color: #ffcbac;
+  box-shadow: 0 0 4px #ffcbac;
+  opacity: 0;
+}
+
+@keyframes animation-color-close{
+  0%, 100%{
+    background-color: rgb(230, 55, 55);
+  }
+  50%{
+    background-color: #ff3030;
+  }
+}
+
+@keyframes animation-color-text{
+  0%, 100%{
+    color: #9b9b9b;
+  }
+  50%{
+    color: #333333;
+  }
+}
+
+@keyframes animation-circle{
+  0%, 100%{
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50%{
+    transform: scale(1.2) translate(-50%, -50%) rotate(360deg);
+  }
+}
